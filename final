@@ -1,0 +1,104 @@
+#This program takes an interger input from the user, and returns the prime factors that make up that number. 
+#There is definitely a cleaner way to incorporate each factor block, functionality that I will continue to think on
+
+NUMBER_MAX = 100
+NUMBER_MIN = 0
+WIDTH = 1000
+HEIGHT = 1000
+
+import math
+
+prime_list = [2,3,5,7,11,13,17,19,23,29,31,37,41,47,53,59,61,67,71,73,79,83,89,97]
+
+def main():
+    #get an input from the terminal
+    number = get_input()
+
+    factor_list = []
+
+    #check the number for all prime factors, and append them to the factor list
+    for i in prime_list:
+        if number % i == 0:
+            factor_list.append(i)
+
+    #check if the product of all values in the list is equal to the number given
+    result = math.prod(factor_list)
+
+#second factor: if the product of the list equals your number, print the factor list and exit
+    if result == number:
+        print("The prime factors of " + str(number) + " are " + str(factor_list) + ".")
+        return
+
+    else:
+        #divide the number by the first value in the list
+        sub_factor = number // result
+        for i in prime_list: 
+            if sub_factor % i == 0 and ((sub_factor // i) * result) < number:
+                factor_list.append(i)
+    result = math.prod(factor_list)
+
+#third factor
+    if result == number:
+        print("The prime factors of " + str(number) + " are " + str(factor_list) + ".")
+        return
+
+    else:
+        #divide the number by the first value in the list
+        sub_factor = number // result
+        for i in prime_list: 
+            if sub_factor % i == 0 and ((sub_factor // i) * result) < number:
+                factor_list.append(i)
+    result = math.prod(factor_list)
+
+#fourth factor
+    if result == number:
+        print("The prime factors of " + str(number) + " are " + str(factor_list) + ".")
+        return
+
+    else:
+        #divide the number by the first value in the list
+        sub_factor = number // result
+        for i in prime_list: 
+            if sub_factor % i == 0 and ((sub_factor // i) * result) < number:
+                factor_list.append(i)
+    result = math.prod(factor_list)
+
+#fifth factor
+    if result == number:
+        print("The prime factors of " + str(number) + " are " + str(factor_list) + ".")
+        return
+
+    else:
+        #divide the number by the first value in the list
+        sub_factor = number // result
+        for i in prime_list: 
+            if sub_factor % i == 0 and ((sub_factor // i) * result) < number:
+                factor_list.append(i)
+    result = math.prod(factor_list)
+
+#sixth factor
+    if result == number:
+        print("The prime factors of " + str(number) + " are " + str(factor_list) + ".")
+        return
+
+    else:
+        #divide the number by the first value in the list
+        sub_factor = number // result
+        for i in prime_list: 
+            if sub_factor % i == 0 and ((sub_factor // i) * result) < number:
+                factor_list.append(i)
+    result = math.prod(factor_list)
+
+    print(factor_list)
+
+def get_input(): 
+# prompts the user to choose a number, checks if the number is within limits, and returns the number
+    number = int(input("Enter a number between 0 and " + str(NUMBER_MAX) + ": "))
+    if NUMBER_MIN < number < NUMBER_MAX:
+        #print(number)
+        return(number)
+    else:
+        print("Number did not meet requirements")
+
+if __name__ == '__main__':
+    main()
